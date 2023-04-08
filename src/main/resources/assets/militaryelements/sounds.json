@@ -1,0 +1,11 @@
+{
+  "syringe_sound": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "militaryelements:syringe",
+        "stream": false
+      }
+    ]
+  }
+}

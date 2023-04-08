@@ -1,0 +1,8 @@
+{
+  "parent": "militaryelements:block/net_model",
+  "textures": {
+    "all": "militaryelements:blocks/dirt",
+    "0": "militaryelements:blocks/dirt",
+    "particle": "militaryelements:blocks/dirt"
+  }
+}

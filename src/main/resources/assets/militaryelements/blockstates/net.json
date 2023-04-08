@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "net_enum_property=sand": {
+      "model": "militaryelements:block/net_sand"
+    },
+    "net_enum_property=dirt": {
+      "model": "militaryelements:block/net_dirt"
+    }
+
+  }
+}
