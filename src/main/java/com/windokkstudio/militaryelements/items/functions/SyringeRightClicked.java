@@ -3,6 +3,8 @@ package com.windokkstudio.militaryelements.items.functions;
 import com.windokkstudio.militaryelements.MilitaryElements;
 import dev.kosmx.playerAnim.api.layered.IAnimation;
 import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;
+
+import dev.kosmx.playerAnim.api.firstPerson.FirstPersonMode;
 import dev.kosmx.playerAnim.api.layered.ModifierLayer;
 import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationAccess;
 import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationRegistry;
@@ -16,15 +18,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class SyringeRightClicked{
-    public static void execute(LevelAccessor world, Player player_, double x, double y, double z) {
+    public static FirstPersonMode execute(LevelAccessor world, Player player_, double x, double y, double z) {
 
         var player = Minecraft.getInstance().level.getPlayerByUUID(player_.getUUID());
 
         if (player == null)
-            return; //The player can be null because it was a system message or because it is not loaded by this player.
+            return null;
 
         ResourceLocation resourceLocation2 = new ResourceLocation(MilitaryElements.MODID, "animation");
         //Get the animation for that player
@@ -41,5 +41,7 @@ public class SyringeRightClicked{
                 }
             }
         }
+
+        return null;
     }
 }

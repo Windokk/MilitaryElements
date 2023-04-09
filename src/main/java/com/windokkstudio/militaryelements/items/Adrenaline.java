@@ -40,23 +40,6 @@ import java.util.function.Consumer;
 public class Adrenaline extends Item {
     public Adrenaline(Properties p_41383_) {super(p_41383_);}
 
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        
-        consumer.accept(new IClientItemExtensions() {
-            @Override
-            public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {
-                int i = arm == HumanoidArm.RIGHT ? 1 : -1;
-                poseStack.translate(i * 0.56F, -0.52F, -0.72F);
-                if (player.getUseItem() == itemInHand && player.isUsingItem()) {
-                    poseStack.translate(0.0, -0.05, 0.0);
-                }
-                return true;
-            }
-
-        });
-    }
-
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
@@ -66,6 +49,7 @@ public class Adrenaline extends Item {
         double y = entity.getY();
         double z = entity.getZ();
 
+        entity.startUsingItem(hand);
         SyringeRightClicked.execute(world, entity, x, y, z);
 
         return ar;
