@@ -42,27 +42,8 @@ public class Adrenaline extends Item {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-
-        MilitaryElements.LOGGER.info("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         
         consumer.accept(new IClientItemExtensions() {
-
-            private static final HumanoidModel.ArmPose EXAMPLE_POSE = HumanoidModel.ArmPose.create("EXAMPLE", false, (model, entity, arm) -> {
-                if (arm == HumanoidArm.RIGHT) {
-                    model.rightArm.xRot = (float) (Math.random() * Math.PI * 2);
-                } else {
-                    model.leftArm.xRot = (float) (Math.random() * Math.PI * 2);
-                }
-            });
-            @Override
-            public HumanoidModel.ArmPose getArmPose(LivingEntity entityLiving, InteractionHand hand, ItemStack itemStack) {
-                if (!itemStack.isEmpty()) {
-                    if (entityLiving.getUsedItemHand() == hand && entityLiving.getUseItemRemainingTicks() > 0) {
-                        return EXAMPLE_POSE;
-                    }
-                }
-                return HumanoidModel.ArmPose.EMPTY;
-            }
             @Override
             public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {
                 int i = arm == HumanoidArm.RIGHT ? 1 : -1;
@@ -84,7 +65,9 @@ public class Adrenaline extends Item {
         double x = entity.getX();
         double y = entity.getY();
         double z = entity.getZ();
-        //Sounds
+
+        SyringeRightClicked.execute(world, entity, x, y, z);
+
         return ar;
     }
 

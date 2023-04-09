@@ -1,4 +1,3 @@
-
 # Military Elements
 
 A minecraft mod that adds some army related equipement with minecraft forge.
@@ -40,4 +39,3 @@ Install Military elements in your mod folder
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
