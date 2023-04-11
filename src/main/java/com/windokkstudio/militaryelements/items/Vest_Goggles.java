@@ -74,7 +74,7 @@ public abstract class Vest_Goggles extends ArmorItem {
 
         @Override
         public void onArmorTick(ItemStack itemstack, Level world, Player entity) {
-            entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 2, 1));
+            entity.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 4, 1, (false), (false)));
         }
     }
 
