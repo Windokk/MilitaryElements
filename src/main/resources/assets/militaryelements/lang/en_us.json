@@ -3,8 +3,15 @@
   "item.militaryelements.adrenaline": "Adrenaline",
   "item.militaryelements.vestandgoggles_chestplate": "Bullet Proof Vest",
   "item.militaryelements.vestandgoggles_helmet": "Night Vision Goggles",
+  "item.militaryelements.jeep": "Jeep",
+
+
+
   "block.militaryelements.sandbags" :"Sandbags",
   "block.militaryelements.net": "Camouflage Net",
   "block.militaryelements.barbed": "Barbed Wire",
+
+
+
   "itemGroup.militaryelements": "Military Elements"
 }

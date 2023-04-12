@@ -1,4 +1,4 @@
-package com.windokkstudio.militaryelements.items;
+package com.windokkstudio.militaryelements.items.armors;
 
 import com.windokkstudio.militaryelements.MilitaryElements;
 import net.minecraftforge.registries.ForgeRegistries;

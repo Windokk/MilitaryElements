@@ -1,19 +1,10 @@
 package com.windokkstudio.militaryelements;
 
 import com.mojang.logging.LogUtils;
-import com.windokkstudio.militaryelements.init.BlockInit;
-import com.windokkstudio.militaryelements.init.ItemInit;
-import com.windokkstudio.militaryelements.init.PotionInit;
-import com.windokkstudio.militaryelements.init.SoundInit;
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.BlockItem;
+import com.windokkstudio.militaryelements.init.*;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -23,10 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-import org.apache.logging.slf4j.Log4jLogger;
 import org.slf4j.Logger;
 
 import java.util.AbstractMap;
@@ -59,6 +46,9 @@ public class MilitaryElements
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);
         PotionInit.POTIONS.register(bus);
+        EntitiesInit.ENTITY_TYPES.register(bus);
+
+
 
     }
 
