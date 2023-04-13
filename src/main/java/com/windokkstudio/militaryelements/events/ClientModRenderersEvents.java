@@ -4,7 +4,6 @@ package com.windokkstudio.militaryelements.events;
 import com.windokkstudio.militaryelements.MilitaryElements;
 import com.windokkstudio.militaryelements.init.EntitiesInit;
 import com.windokkstudio.militaryelements.render.JeepRenderer;
-import com.windokkstudio.militaryelements.render.models.JeepModel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
