@@ -3,6 +3,7 @@ package com.windokkstudio.militaryelements.init;
 import com.windokkstudio.militaryelements.MilitaryElements;
 import com.windokkstudio.militaryelements.items.consumable.Adrenaline;
 import com.windokkstudio.militaryelements.items.armors.Vest_Goggles;
+import com.windokkstudio.militaryelements.items.vehicles.JeepItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,7 +22,7 @@ public class ItemInit {
 
     public static final RegistryObject<Item> VEST = ITEMS.register("vestandgoggles_chestplate", () -> new Vest_Goggles.Chestplate());
 
-    //public static final RegistryObject<Item> JEEP = ITEMS.register("jeep",() -> new JeepItem(new Item.Properties().tab(MilitaryElements.TAB),EntitiesInit.JEEP));
+    public static final RegistryObject<Item> JEEP = ITEMS.register("jeep",() -> new JeepItem(new Item.Properties().tab(MilitaryElements.TAB),EntitiesInit.JEEP));
 
 
 }

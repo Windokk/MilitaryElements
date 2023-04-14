@@ -52,10 +52,14 @@ public class JeepEntity extends Entity {
         super(type, world);
     }
 
+    public static final EntityDataAccessor<Integer> TIME_SINCE_HIT = SynchedEntityData.defineId(JeepEntity.class, EntityDataSerializers.INT);
+
+    public Quaternion Q_Prev = new Quaternion(Quaternion.ONE);
+    public Quaternion Q_Client = new Quaternion(Quaternion.ONE);
 
     @Override
-    protected void defineSynchedData() {
-
+    public boolean isPushable() {
+        return false;
     }
 
     @Override
@@ -71,5 +75,27 @@ public class JeepEntity extends Entity {
     @Override
     public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
+    }
+
+    public int getTimeSinceHit() {
+        return entityData.get(TIME_SINCE_HIT);
+    }
+
+    public Quaternion getQ_Client() {
+        return new Quaternion(Q_Client);
+    }
+
+    public Quaternion getQ_Prev() {
+        return Q_Prev.copy();
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        entityData.define(TIME_SINCE_HIT, 0);
+
+    }
+
+    public void setTimeSinceHit(int timeSinceHit) {
+        entityData.set(TIME_SINCE_HIT, timeSinceHit);
     }
 }

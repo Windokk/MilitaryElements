@@ -19,11 +19,15 @@ public class EntitiesInit {
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MilitaryElements.MODID);
 
-    public static final RegistryObject<EntityType<JeepEntity>> JEEP = ENTITY_TYPES.register("jeep",() -> createEntityType(JeepEntity::new, EntityDimensions.scalable(2.5F, 1.8F)));
+    public static final RegistryObject<EntityType<JeepEntity>> JEEP = register("jeep",
+            EntityType.Builder.<JeepEntity>of(JeepEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3)
 
-    private static <T extends Entity> EntityType<T> createEntityType(EntityType.EntityFactory<T> factory, EntityDimensions size) {
-        return new EntityType<>(factory, MobCategory.MISC, true, true, false, true, ImmutableSet.of(), size, 5, 3);
+                    .sized(0.6f, 1.8f));
+
+    private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
+        return ENTITY_TYPES.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));
     }
+
 
 }
 
