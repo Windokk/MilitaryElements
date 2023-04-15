@@ -46,30 +46,11 @@ public class JeepRenderer<T extends JeepEntity> extends EntityRenderer<T>{
     @Override
     public void render(T jeepEntity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
-        poseStack.translate(0.0D, 0.375D, 0.0D);
-        poseStack.scale(-1.0F, -1.0F, 1.0F);
+        poseStack.scale(-1.6F, -1.6F, 1.6F);
 
         poseStack.mulPose(Vector3f.YP.rotationDegrees(180));
 
-        Quaternion q = MathUtil.lerpQ(partialTicks, jeepEntity.getQ_Prev(), jeepEntity.getQ_Client());
-        poseStack.mulPose(q);
-        EntityType<?> entityType = jeepEntity.getType();
-        if (entityType == EntitiesInit.JEEP.get()) {
-            poseStack.translate(0, -0.5, -0.5);
-        }
-         else {
-            poseStack.translate(0, 0, 0.9);
-        }
-
-        float timeSinceHitWithPartial = (float) jeepEntity.getTimeSinceHit() - partialTicks;
-
-        if (timeSinceHitWithPartial > 0.0F) {
-            float angle = Mth.clamp(timeSinceHitWithPartial / 10.0F, -30, 30);
-            timeSinceHitWithPartial = jeepEntity.tickCount + partialTicks;
-            poseStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.sin(timeSinceHitWithPartial) * angle));
-        }
-
-        poseStack.translate(0, -1.1, 0);
+        poseStack.translate(0, -1.5, 0);
 
         VertexConsumer vertexConsumer = buffer.getBuffer(jeepEntityModel.renderType(TEXTURE));
         jeepEntityModel.setupAnim(jeepEntity, partialTicks, 0, 0, 0, 0);

@@ -2,7 +2,7 @@ package com.windokkstudio.militaryelements;
 
 import com.mojang.logging.LogUtils;
 import com.windokkstudio.militaryelements.init.*;
-import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -29,6 +29,8 @@ public class MilitaryElements
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static final DamageSource DAMAGE_SOURCE_JEEP_CRASH = new DamageSource("jeep_crash").bypassArmor();
+
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
     public static void queueServerWork(int tick, Runnable action) {
         workQueue.add(new AbstractMap.SimpleEntry(action, tick));
@@ -42,6 +44,7 @@ public class MilitaryElements
         MinecraftForge.EVENT_BUS.register(this);
 
         //Registries Initializers
+        DataSerializersInit.DATA_SERIALIZERS.register(bus);
         SoundInit.SOUNDS.register(bus);
         BlockInit.BLOCKS.register(bus);
         ItemInit.ITEMS.register(bus);

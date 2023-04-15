@@ -18,25 +18,25 @@ public class JeepModel<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("milittaryelements", "jeepmodel"), "main");
 	private final ModelPart armature;
 	private final ModelPart interior;
-	private final ModelPart steeringwheel;
 	private final ModelPart glass;
 	private final ModelPart lights;
 	private final ModelPart wheel1;
 	private final ModelPart wheel2;
 	private final ModelPart wheel3;
 	private final ModelPart wheel4;
+	private final ModelPart sterringwheel;
 	private final ModelPart bb_main;
 
 	public JeepModel(ModelPart root) {
 		this.armature = root.getChild("armature");
 		this.interior = root.getChild("interior");
-		this.steeringwheel = root.getChild("steeringwheel");
 		this.glass = root.getChild("glass");
 		this.lights = root.getChild("lights");
 		this.wheel1 = root.getChild("wheel1");
 		this.wheel2 = root.getChild("wheel2");
 		this.wheel3 = root.getChild("wheel3");
 		this.wheel4 = root.getChild("wheel4");
+		this.sterringwheel = root.getChild("sterringwheel");
 		this.bb_main = root.getChild("bb_main");
 	}
 
@@ -121,20 +121,6 @@ public class JeepModel<T extends Entity> extends EntityModel<T> {
 		PartDefinition interior = partdefinition.addOrReplaceChild("interior", CubeListBuilder.create().texOffs(35, 7).addBox(-5.5F, -0.3333F, -6.1667F, 11.0F, 3.0F, 13.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 20).addBox(-5.5F, -3.3333F, 4.8333F, 11.0F, 6.0F, 13.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 0).addBox(-5.5F, -4.3333F, -18.1667F, 11.0F, 7.0F, 13.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 16.3333F, 0.1667F));
-
-		PartDefinition steeringwheel = partdefinition.addOrReplaceChild("steeringwheel", CubeListBuilder.create().texOffs(0, 10).addBox(0.2222F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
-				.texOffs(26, 93).addBox(-0.7778F, -0.6962F, -3.5F, 1.0F, 1.0F, 7.0F, new CubeDeformation(0.0F))
-				.texOffs(54, 73).addBox(-0.7778F, -3.5F, -0.6962F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, 10.095F, 3.261F, 0.0F, -1.2217F, 1.5708F));
-
-		PartDefinition hexadecagon_r1 = steeringwheel.addOrReplaceChild("hexadecagon_r1", CubeListBuilder.create().texOffs(71, 3).addBox(-0.5F, -3.5F, -0.6962F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F))
-				.texOffs(26, 83).addBox(-0.5F, -0.6962F, -3.5F, 1.0F, 1.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.2778F, 0.0F, 0.0F, -0.3927F, 0.0F, 0.0F));
-
-		PartDefinition hexadecagon_r2 = steeringwheel.addOrReplaceChild("hexadecagon_r2", CubeListBuilder.create().texOffs(75, 3).addBox(-0.5F, -3.5F, -0.6962F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F))
-				.texOffs(34, 103).addBox(-0.5F, -0.6962F, -3.5F, 1.0F, 1.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.2778F, 0.0F, 0.0F, 0.3927F, 0.0F, 0.0F));
-
-		PartDefinition hexadecagon_r3 = steeringwheel.addOrReplaceChild("hexadecagon_r3", CubeListBuilder.create().texOffs(32, 73).addBox(-0.5F, -0.6962F, -3.5F, 1.0F, 1.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.2778F, 0.0F, 0.0F, -0.7854F, 0.0F, 0.0F));
-
-		PartDefinition hexadecagon_r4 = steeringwheel.addOrReplaceChild("hexadecagon_r4", CubeListBuilder.create().texOffs(102, 104).addBox(-0.5F, -0.6962F, -3.5F, 1.0F, 1.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.2778F, 0.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
 
 		PartDefinition glass = partdefinition.addOrReplaceChild("glass", CubeListBuilder.create(), PartPose.offset(0.0F, 4.9481F, 6.3506F));
 
@@ -275,6 +261,24 @@ public class JeepModel<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition cube_r84 = wheelinterior5.addOrReplaceChild("cube_r84", CubeListBuilder.create().texOffs(1, 126).mirror().addBox(-0.5F, -2.0F, -4.0F, 1.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -1.5708F, 0.0F, 0.0F));
 
+		PartDefinition sterringwheel = partdefinition.addOrReplaceChild("sterringwheel", CubeListBuilder.create().texOffs(1, 3).addBox(-1.0F, 0.5F, -1.0F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, 10.5F, 3.0F, 1.0472F, 0.0F, 0.0F));
+
+		PartDefinition cube_r85 = sterringwheel.addOrReplaceChild("cube_r85", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -0.5F, -2.4116F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 0.7854F, 0.0F));
+
+		PartDefinition cube_r86 = sterringwheel.addOrReplaceChild("cube_r86", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.0F, -0.5F, -2.4116F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -0.7854F, 0.0F));
+
+		PartDefinition cube_r87 = sterringwheel.addOrReplaceChild("cube_r87", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -1.0F, -2.4142F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.5F, 0.0F, 0.0F, 0.0F, 0.0F));
+
+		PartDefinition cube_r88 = sterringwheel.addOrReplaceChild("cube_r88", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -0.5F, -2.4106F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
+
+		PartDefinition cube_r89 = sterringwheel.addOrReplaceChild("cube_r89", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -0.5F, -2.4106F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
+
+		PartDefinition cube_r90 = sterringwheel.addOrReplaceChild("cube_r90", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -0.5F, -2.4116F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -3.1416F, -0.7854F, -3.1416F));
+
+		PartDefinition cube_r91 = sterringwheel.addOrReplaceChild("cube_r91", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.0F, -0.5F, -2.4116F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 3.1416F, 0.7854F, -3.1416F));
+
+		PartDefinition cube_r92 = sterringwheel.addOrReplaceChild("cube_r92", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -0.5F, -2.4142F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -3.1416F, 0.0F, -3.1416F));
+
 		PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
 		PartDefinition char2_r1 = bb_main.addOrReplaceChild("char2_r1", CubeListBuilder.create().texOffs(0, 106).addBox(-2.5F, -4.0F, -1.0F, 5.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, -11.9332F, -3.0F, 0.48F, 0.0F, 0.0F));
@@ -293,13 +297,13 @@ public class JeepModel<T extends Entity> extends EntityModel<T> {
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		armature.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		interior.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		steeringwheel.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		glass.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		lights.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		wheel1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		wheel2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		wheel3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		wheel4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		sterringwheel.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		bb_main.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }
