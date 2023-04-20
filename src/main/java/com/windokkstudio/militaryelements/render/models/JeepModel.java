@@ -5,6 +5,7 @@ package com.windokkstudio.militaryelements.render.models;// Made with Blockbench
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.windokkstudio.militaryelements.entities.vehicles.JeepEntity;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -291,6 +292,20 @@ public class JeepModel<T extends Entity> extends EntityModel<T> {
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
+		float throttle = ((JeepEntity) entity).getThrottle();
+
+		if (throttle > 0.3) {
+			wheel1.xRot -= throttle/50;
+			wheel2.xRot -= throttle/50;
+			wheel3.xRot -= throttle/50;
+			wheel4.xRot -= throttle/50;
+		}
+		else if (throttle==0.0f){
+			wheel1.xRot = 0;
+			wheel2.xRot = 0;
+			wheel3.xRot = 0;
+			wheel4.xRot = 0;
+		}
 	}
 
 	@Override

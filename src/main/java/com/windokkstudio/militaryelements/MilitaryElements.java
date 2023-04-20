@@ -2,6 +2,7 @@ package com.windokkstudio.militaryelements;
 
 import com.mojang.logging.LogUtils;
 import com.windokkstudio.militaryelements.init.*;
+import com.windokkstudio.militaryelements.init.networking.NetworkingInit;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -51,7 +52,8 @@ public class MilitaryElements
         PotionInit.POTIONS.register(bus);
         EntitiesInit.ENTITY_TYPES.register(bus);
 
-
+        NetworkingInit.init();
+        ConfigInit.init();
 
     }
 

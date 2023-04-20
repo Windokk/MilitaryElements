@@ -1,4 +1,9 @@
 {
+  "key.militaryelements.category": "MilitaryElements",
+  "key.jeep_inventory_open.desc": "Open Jeep Inventory",
+  "key.jeep_engine_up.desc": "Motor Up",
+  "key.jeep_engine_down.desc": "Motor Down",
+
   "item.militaryelements.flag": "Flag",
   "item.militaryelements.adrenaline": "Adrenaline",
   "item.militaryelements.vestandgoggles_chestplate": "Bullet Proof Vest",
